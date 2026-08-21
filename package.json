@@ -1,0 +1,51 @@
+{
+  "name": "chinese-anti-japanese-history-search",
+  "version": "1.0.0",
+  "description": "中国抗日战争历史人物查询工具 - 缅怀先烈，警惕汉奸",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@prisma/client": "^5.7.0",
+    "@vercel/postgres": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8",
+    "autoprefixer": "^10.0.1",
+    "prisma": "^5.7.0",
+    "ts-node": "^10.9.2"
+  },
+  "keywords": [
+    "抗日战争",
+    "历史人物",
+    "汉奸查询",
+    "抗日英雄",
+    "历史教育",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search/issues"
+  },
+  "homepage": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search#readme"
+}

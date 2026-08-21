@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.search-container {
+  @apply flex items-center gap-4 w-full max-w-4xl mx-auto;
+}
+
+.search-input {
+  @apply flex-1 px-4 py-3 rounded-lg border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.search-button {
+  @apply px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium cursor-pointer;
+}
+
+.result-card {
+  @apply bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-gray-600 transition-colors;
+}
+
+.result-title {
+  @apply text-xl font-bold text-white mb-2;
+}
+
+.result-info {
+  @apply text-gray-300 text-sm mb-1;
+}
+
+.result-type {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-medium mr-2;
+}
+
+.type-pro-japanese {
+  @apply bg-red-900 text-red-300;
+}
+
+.type-independence {
+  @apply bg-green-900 text-green-300;
+}
+
+.loading-spinner {
+  @apply animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto;
+}
+
+.no-results {
+  @apply text-center text-gray-400 py-12;
+}  

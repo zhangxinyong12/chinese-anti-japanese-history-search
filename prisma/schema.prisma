@@ -1,0 +1,37 @@
+// Prisma Schema for 日奸清算器
+// 适用于 Vercel Postgres
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 历史人物表
+model HistoricalFigure {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  identity    String   @db.VarChar(200)
+  period      String   @db.VarChar(50)
+  activities  String   @db.Text
+  type        FigureType
+  note        String?  @db.Text
+  year        Int?
+  deathPlace  String?  @db.VarChar(200)
+  punishment  String?  @db.VarChar(200)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([type])
+  @@map("historical_figures")
+}
+
+// 人物类型枚举
+enum FigureType {
+  TRAITOR  // 汉奸
+  HERO     // 抗日英雄
+}
