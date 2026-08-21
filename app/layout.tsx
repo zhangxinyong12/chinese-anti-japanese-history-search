@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SimpleSessionProvider } from "@/components/SimpleSessionProvider";
+import { SessionNav } from "@/components/SessionNav";
 
 export const metadata: Metadata = {
   title: "汉奸清算器 - 中国抗日战争汉奸历史查询",
@@ -71,18 +72,7 @@ export default function RootLayout({
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <a
-                        href="/auth/register"
-                        className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors"
-                      >
-                        注册
-                      </a>
-                      <a
-                        href="/auth/login"
-                        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-colors"
-                      >
-                        登录
-                      </a>
+                      <SessionNav />
                     </div>
                   </div>
                 </div>
