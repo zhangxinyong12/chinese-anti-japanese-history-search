@@ -1,0 +1,947 @@
+{
+  "protected_figures": [
+    {
+      "name": "毛泽东",
+      "category": "党和国家领导人",
+      "description": "伟大的无产阶级革命家、战略家和理论家",
+      "protection_level": "highest",
+      "reason": "中华人民共和国主要创立者"
+    },
+    {
+      "name": "周恩来",
+      "category": "党和国家领导人",
+      "description": "杰出的政治家、外交家",
+      "protection_level": "highest",
+      "reason": "开国总理"
+    },
+    {
+      "name": "邓小平",
+      "category": "党和国家领导人",
+      "description": "改革开放的总设计师",
+      "protection_level": "highest",
+      "reason": "改革开放主要设计者"
+    },
+    {
+      "name": "江泽民",
+      "category": "党和国家领导人",
+      "description": "中国共产党第三代中央领导集体的核心",
+      "protection_level": "highest",
+      "reason": "前国家主席"
+    },
+    {
+      "name": "胡锦涛",
+      "category": "党和国家领导人",
+      "description": "中国共产党第四代中央领导集体的核心",
+      "protection_level": "highest",
+      "reason": "前国家主席"
+    },
+    {
+      "name": "习近平",
+      "category": "党和国家领导人",
+      "description": "中国共产党中央总书记、国家主席、中央军委主席",
+      "protection_level": "highest",
+      "reason": "现任最高领导人"
+    },
+    {
+      "name": "朱德",
+      "category": "军事领导人",
+      "description": "中华人民共和国元帅、中国人民解放军总司令",
+      "protection_level": "highest",
+      "reason": "开国元帅"
+    },
+    {
+      "name": "彭德怀",
+      "category": "军事领导人",
+      "description": "中华人民共和国元帅、国防部长",
+      "protection_level": "highest",
+      "reason": "开国元帅"
+    },
+    {
+      "name": "林彪",
+      "category": "军事领导人",
+      "description": "中华人民共和国元帅、国防部长",
+      "protection_level": "high",
+      "reason": "历史复杂性"
+    },
+    {
+      "name": "刘少奇",
+      "category": "党和国家领导人",
+      "description": "中华人民共和国主席、伟大的马克思主义者",
+      "protection_level": "highest",
+      "reason": "国家主席"
+    },
+    {
+      "name": "孙中山",
+      "category": "革命先驱",
+      "description": "中国近代民主革命的伟大先行者",
+      "protection_level": "highest",
+      "reason": "国父"
+    },
+    {
+      "name": "黄继光",
+      "category": "革命英雄",
+      "description": "抗美援朝英雄，特级战斗英雄",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "邱少云",
+      "category": "革命英雄",
+      "description": "抗美援朝英雄，一级战斗英雄",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "雷锋",
+      "category": "道德模范",
+      "description": "全心全意为人民服务的楷模",
+      "protection_level": "high",
+      "reason": "时代楷模"
+    },
+    {
+      "name": "焦裕禄",
+      "category": "模范干部",
+      "description": "县委书记的榜样，人民的好儿子",
+      "protection_level": "high",
+      "reason": "时代楷模"
+    },
+    {
+      "name": "邓稼先",
+      "category": "科学家",
+      "description": "两弹元勋，原子弹、氢弹研制的主要贡献者",
+      "protection_level": "highest",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "钱学森",
+      "category": "科学家",
+      "description": "中国航天事业奠基人",
+      "protection_level": "highest",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "袁隆平",
+      "category": "科学家",
+      "description": "杂交水稻之父，共和国勋章获得者",
+      "protection_level": "highest",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "屠呦呦",
+      "category": "科学家",
+      "description": "诺贝尔奖获得者，青蒿素发现者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "钟南山",
+      "category": "医学专家",
+      "description": "抗疫英雄，共和国勋章获得者",
+      "protection_level": "high",
+      "reason": "时代英雄"
+    },
+    {
+      "name": "李兰娟",
+      "category": "科学家",
+      "description": "青蒿素发现团队成员",
+      "protection_level": "high",
+      "reason": "诺贝尔奖团队成员"
+    },
+    {
+      "name": "于敏",
+      "category": "科学家",
+      "description": "氢弹之父，国家最高科技奖获得者",
+      "protection_level": "highest",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "孙家栋",
+      "category": "科学家",
+      "description": "中国核潜艇之父",
+      "protection_level": "high",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "黄旭华",
+      "category": "科学家",
+      "description": "中国核潜艇总设计师",
+      "protection_level": "high",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "鲁迅",
+      "category": "文学家",
+      "description": "著名文学家、思想家、革命家",
+      "protection_level": "high",
+      "reason": "文化旗手"
+    },
+    {
+      "name": "郭沫若",
+      "category": "文学家",
+      "description": "著名文学家、历史学家、考古学家",
+      "protection_level": "medium",
+      "reason": "文化名人"
+    },
+    {
+      "name": "茅盾",
+      "category": "文学家",
+      "description": "著名作家，茅盾文学奖创立者",
+      "protection_level": "high",
+      "reason": "文学巨匠"
+    },
+    {
+      "name": "老舍",
+      "category": "文学家",
+      "description": "著名作家，人民艺术家",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "巴金",
+      "category": "文学家",
+      "description": "著名作家，现代文学巨匠",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "冰心",
+      "category": "文学家",
+      "description": "著名作家、儿童文学家",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "钱学森",
+      "aliases": ["钱学深"],
+      "category": "科学家",
+      "description": "航天事业奠基人",
+      "protection_level": "highest",
+      "reason": "国家功勋"
+    },
+    {
+      "name": "赵一曼",
+      "category": "革命英雄",
+      "description": "东北抗日联军团政委，抗联烈士",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "杨靖宇",
+      "category": "革命英雄",
+      "description": "东北抗日联军总司令，抗联烈士",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "左权",
+      "category": "革命英雄",
+      "description": "八路军副参谋长，抗战烈士",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "彭雪枫",
+      "category": "革命英雄",
+      "description": "新四军第四师师长，抗战烈士",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "刘胡兰",
+      "category": "革命英雄",
+      "description": "少年英雄，毛主席题词\"生的伟大，死的光荣\"",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "董存瑞",
+      "category": "革命英雄",
+      "description": "舍身炸碉堡的英雄",
+      "protection_level": "high",
+      "reason": "战斗英雄"
+    },
+    {
+      "name": "黄继光",
+      "category": "革命英雄",
+      "description": "特级战斗英雄，舍身堵枪眼",
+      "protection_level": "high",
+      "reason": "战斗英雄"
+    },
+    {
+      "name": "邱少云",
+      "category": "革命英雄",
+      "description": "一级战斗英雄，烈火烧身",
+      "protection_level": "high",
+      "reason": "战斗英雄"
+    },
+    {
+      "name": "罗盛教",
+      "category": "革命英雄",
+      "description": "国际主义战士，舍身救朝鲜少年",
+      "protection_level": "high",
+      "reason": "国际主义战士"
+    },
+    {
+      "name": "王进喜",
+      "category": "劳动模范",
+      "description": "铁人王进喜，石油工人英雄",
+      "protection_level": "high",
+      "reason": "时代劳模"
+    },
+    {
+      "name": "时传祥",
+      "category": "劳动模范",
+      "description": "掏粪工人，时传祥精神",
+      "protection_level": "medium",
+      "reason": "劳动模范"
+    },
+    {
+      "name": "张思德",
+      "category": "革命先烈",
+      "description": "为人民服务的典范，毛主席发表《为人民服务》演讲",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "白求恩",
+      "category": "国际主义战士",
+      "description": "加拿大医生，支援中国抗战的国际主义战士",
+      "protection_level": "high",
+      "reason": "国际主义战士"
+    },
+    {
+      "name": "柯棣华",
+      "category": "国际主义战士",
+      "description": "印度医生，支援中国抗战的国际主义战士",
+      "protection_level": "high",
+      "reason": "国际主义战士"
+    },
+    {
+      "name": "李四光",
+      "category": "科学家",
+      "description": "著名地质学家，中国地质学奠基人",
+      "protection_level": "high",
+      "reason": "科学巨匠"
+    },
+    {
+      "name": "华罗庚",
+      "category": "科学家",
+      "description": "著名数学家，中国现代数学奠基人",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "陈景润",
+      "category": "科学家",
+      "description": "著名数学家，哥德巴赫猜想研究专家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "竺可桢",
+      "category": "科学家",
+      "description": "气象学家、地理学家，中国现代气象学奠基人",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "丝可桢",
+      "category": "科学家",
+      "description": "实验胚胎学家，中国克隆先驱",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "童第周",
+      "category": "科学家",
+      "description": "生物学家，克隆先驱",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "侯德榜",
+      "category": "科学家",
+      "description": "化学家，侯氏制碱法发明者",
+      "protection_level": "high",
+      "reason": "工业大师"
+    },
+    {
+      "name": "詹天佑",
+      "category": "工程专家",
+      "description": "铁路工程师，中国铁路事业奠基人",
+      "protection_level": "high",
+      "reason": "工程大师"
+    },
+    {
+      "name": "茅以升",
+      "category": "工程专家",
+      "description": "桥梁专家，钱塘江大桥设计者",
+      "protection_level": "high",
+      "reason": "工程大师"
+    },
+    {
+      "name": "梁思成",
+      "category": "建筑学家",
+      "description": "建筑学家，中国古建筑研究保护专家",
+      "protection_level": "high",
+      "reason": "文化名人"
+    },
+    {
+      "name": "林徽因",
+      "category": "建筑学家",
+      "description": "建筑学家、诗人，参与国徽设计",
+      "protection_level": "high",
+      "reason": "文化名人"
+    },
+    {
+      "name": "徐悲鸿",
+      "category": "艺术家",
+      "description": "著名画家、美术教育家",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "齐白石",
+      "category": "艺术家",
+      "description": "国画大师，虾蟹画创始人",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "张大千",
+      "category": "艺术家",
+      "description": "国画大师，泼墨画创始人",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "梅兰芳",
+      "category": "艺术家",
+      "description": "京剧表演艺术家，四大名旦之首",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "程砚秋",
+      "category": "艺术家",
+      "description": "京剧表演艺术家，四大名旦之一",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "尚小云",
+      "category": "艺术家",
+      "description": "京剧表演艺术家，四大名旦之一",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "荀慧生",
+      "category": "艺术家",
+      "description": "京剧表演艺术家，四大名旦之一",
+      "protection_level": "high",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "聂耳",
+      "category": "艺术家",
+      "description": "音乐家，国歌曲《义勇军进行曲》作曲者",
+      "protection_level": "high",
+      "reason": "人民音乐家"
+    },
+    {
+      "name": "冼星海",
+      "category": "艺术家",
+      "description": "音乐家，《黄河大合唱》作曲者",
+      "protection_level": "high",
+      "reason": "人民音乐家"
+    },
+    {
+      "name": "田汉",
+      "category": "艺术家",
+      "description": "戏剧家，国歌词《义勇军进行曲》作词者",
+      "protection_level": "high",
+      "reason": "人民艺术家"
+    },
+    {
+      "name": "欧阳予倩",
+      "category": "艺术家",
+      "description": "戏剧艺术家、戏曲理论家",
+      "protection_level": "medium",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "夏衍",
+      "category": "文学家",
+      "description": "文学家、戏剧家、电影事业家",
+      "protection_level": "high",
+      "reason": "文艺大师"
+    },
+    {
+      "name": "曹禺",
+      "category": "文学家",
+      "description": "著名剧作家，《雷雨》《日出》作者",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "巴金",
+      "category": "文学家",
+      "description": "著名作家，现代文学巨匠",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "赵树理",
+      "category": "文学家",
+      "description": "著名作家，山药蛋派创始人",
+      "protection_level": "medium",
+      "reason": "人民艺术家"
+    },
+    {
+      "name": "孙犁",
+      "category": "文学家",
+      "description": "著名作家，荷花淀派创始人",
+      "protection_level": "medium",
+      "reason": "文学大师"
+    },
+    {
+      "name": "闻一多",
+      "category": "文学家",
+      "description": "诗人、学者、民主战士",
+      "protection_level": "high",
+      "reason": "革命烈士"
+    },
+    {
+      "name": "朱自清",
+      "category": "文学家",
+      "description": "散文家、诗人，《背影》《荷塘月色》作者",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "徐志摩",
+      "category": "文学家",
+      "description": "著名诗人、散文家",
+      "protection_level": "medium",
+      "reason": "文学名人"
+    },
+    {
+      "name": "胡适",
+      "category": "学者",
+      "description": "思想家、文学家、哲学家",
+      "protection_level": "high",
+      "reason": "学术大师"
+    },
+    {
+      "name": "蔡元培",
+      "category": "教育家",
+      "description": "教育家、北京大学校长，五四运动领导人",
+      "protection_level": "highest",
+      "reason": "教育大师"
+    },
+    {
+      "name": "马寅初",
+      "category": "经济学家",
+      "description": "经济学家、人口学家",
+      "protection_level": "high",
+      "reason": "学术大师"
+    },
+    {
+      "name": "费孝通",
+      "category": "社会学家",
+      "description": "社会学家、人类学家",
+      "protection_level": "high",
+      "reason": "学术大师"
+    },
+    {
+      "name": "钱三强",
+      "category": "科学家",
+      "description": "核物理学家，中国原子能事业奠基人",
+      "protection_level": "highest",
+      "reason": "科学大师"
+    },
+    {
+      "name": "王淦昌",
+      "category": "科学家",
+      "description": "核物理学家，中国原子弹事业奠基人",
+      "protection_level": "highest",
+      "reason": "科学大师"
+    },
+    {
+      "name": "任新民",
+      "category": "科学家",
+      "description": "核物理学家，中国氢弹事业奠基人",
+      "protection_level": "highest",
+      "reason": "科学大师"
+    },
+    {
+      "name": "王大珩",
+      "category": "科学家",
+      "description": "应用光学家，中国光学事业奠基人",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "庄逢甘",
+      "category": "科学家",
+      "description": "物理学家、教育家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "贝时璋",
+      "category": "科学家",
+      "description": "生物学家、教育家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "童第周",
+      "category": "科学家",
+      "description": "生物学家，克隆先驱",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "张钰哲",
+      "category": "科学家",
+      "description": "地质学家、古生物学家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "张孝骞",
+      "category": "科学家",
+      "description": "农学家、棉花专家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "金善宝",
+      "category": "科学家",
+      "description": "蚕业科学家，中国蚕丝业奠基人",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "陈永康",
+      "category": "科学家",
+      "description": "桥梁专家，工程大师",
+      "protection_level": "high",
+      "reason": "工程大师"
+    },
+    {
+      "name": "茅以升",
+      "category": "科学家",
+      "description": "桥梁专家，钱塘江大桥设计者",
+      "protection_level": "high",
+      "reason": "工程大师"
+    },
+    {
+      "name": "李四光",
+      "category": "科学家",
+      "description": "地质学家，中国地质学奠基人",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "翁文灏",
+      "category": "地质学家",
+      "description": "地质学家、教育家",
+      "protection_level": "high",
+      "reason": "科学大师"
+    },
+    {
+      "name": "杨振宁",
+      "category": "科学家",
+      "description": "物理学家，诺贝尔奖获得者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "李政道",
+      "category": "科学家",
+      "description": "物理学家，诺贝尔奖获得者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "丁肇中",
+      "category": "科学家",
+      "description": "物理学家，诺贝尔奖获得者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "莫言",
+      "category": "文学家",
+      "description": "作家，诺贝尔文学奖获得者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "屠呦呦",
+      "category": "科学家",
+      "description": "药学家，诺贝尔奖获得者",
+      "protection_level": "highest",
+      "reason": "诺贝尔奖得主"
+    },
+    {
+      "name": "刘慈欣",
+      "category": "文学家",
+      "description": "科幻作家，《三体》作者",
+      "protection_level": "high",
+      "reason": "文学大师"
+    },
+    {
+      "name": "余秋雨",
+      "category": "文学家",
+      "description": "著名作家、学者",
+      "protection_level": "medium",
+      "reason": "文化名人"
+    },
+    {
+      "name": "张艺谋",
+      "category": "艺术家",
+      "description": "著名导演，电影大师",
+      "protection_level": "medium",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "陈凯歌",
+      "category": "艺术家",
+      "description": "著名导演，电影大师",
+      "protection_level": "medium",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "冯小刚",
+      "category": "艺术家",
+      "description": "著名导演，喜剧大师",
+      "protection_level": "medium",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "李安",
+      "category": "艺术家",
+      "description": "著名导演，国际电影大师",
+      "protection_level": "medium",
+      "reason": "艺术大师"
+    },
+    {
+      "name": "姚明",
+      "category": "体育明星",
+      "description": "篮球巨星，体育大使",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "刘翔",
+      "category": "体育明星",
+      "description": "跨栏奥运冠军，中国田径传奇",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "伏明霞",
+      "category": "体育明星",
+      "description": "跳水奥运冠军，跳水女皇",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "李宁",
+      "category": "体育明星",
+      "description": "体操王子，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "郎平",
+      "category": "体育明星",
+      "description": "排球教练，铁榔头，奥运冠军",
+      "protection_level": "high",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "孔令辉",
+      "category": "体育明星",
+      "description": "乒乓球奥运冠军，大满贯得主",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "邓亚萍",
+      "category": "体育明星",
+      "description": "乒乓球奥运冠军，乒乓女皇",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "马龙",
+      "category": "体育明星",
+      "description": "乒乓球奥运冠军，龙队队长",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "张怡宁",
+      "category": "体育明星",
+      "description": "网球奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "李娜",
+      "category": "体育明星",
+      "description": "网球大满贯得主，亚洲网球一姐",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "苏炳添",
+      "category": "体育明星",
+      "description": "田径运动员，亚洲飞人",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "全红婵",
+      "category": "体育明星",
+      "description": "跳水奥运冠军，全满贯得主",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "陈若琳",
+      "category": "体育明星",
+      "description": "跳水奥运冠军，跳水女皇",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "谷爱凌",
+      "category": "体育明星",
+      "description": "自由式滑雪奥运冠军，滑雪天才",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "武大靖",
+      "category": "体育明星",
+      "description": "短道速滑奥运冠军，冰上飞人",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "周苏苏",
+      "category": "体育明星",
+      "description": "短道速滑奥运冠军，刀锋战士",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "任子威",
+      "category": "体育明星",
+      "description": "短道速滑奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "王濛",
+      "category": "体育明星",
+      "description": "短道速滑奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "韩天宇",
+      "category": "体育明星",
+      "description": "短道速滑奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "许海峰",
+      "category": "体育明星",
+      "description": "排球教练，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "朱婷",
+      "category": "体育明星",
+      "description": "排球运动员，世界第一主攻手",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "惠若琪",
+      "category": "体育明星",
+      "description": "排球运动员，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "龚翔宇",
+      "category": "体育明星",
+      "description": "排球运动员，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "丁霞",
+      "category": "体育明星",
+      "description": "排球运动员，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    },
+    {
+      "name": "袁心玥",
+      "category": "体育明星",
+      "description": "排球运动员，奥运冠军",
+      "protection_level": "medium",
+      "reason": "体育英雄"
+    }
+  ],
+  "protected_names": [
+    "毛主席", "毛主", "朱总司令", "周总理", "邓主席",
+    "江主席", "胡主席", "习主席", "习总书记",
+    "毛主席", "周恩来总理", "邓小平同志",
+    "江泽民同志", "胡锦涛同志", "习近平总书记",
+    "朱老总", "彭老总", "贺老总", "陈老总", "刘老总",
+    "林彪元帅", "罗荣桓", "聂荣臻", "徐向前", "叶剑英",
+    "粟裕", "陈赓", "刘伯承", "黄克诚",
+    "习仲勋", "习远平", "习正宁", "习明远",
+    "李克强", "李强", "温家宝", "李克强同志",
+    "胡锦涛", "温总理", "李总理", "强总理",
+    "王岐山", "张高丽", "汪洋", "刘鹤",
+    "韩正", "孙春兰", "胡春华", "刘云山",
+    "王沪宁", "张德江", "赵乐际", "韩正",
+    "李强", "丁薛祥", "王勇", "何立峰",
+    "张国清", "陈希明", "赵克志", "何伟",
+    "习近平主席", "习近平总书记", "习近平主席",
+    "李克强总理", "李强总理", "强总理",
+    "栗战书", "韩正", "胡春华", "刘鹤",
+    "王毅", "杨洁篪", "王沪宁", "刘延东",
+    "孙春兰", "胡春华", "魏凤和", "王勇",
+    "何立峰", "李尚福", "韩正", "刘鹤",
+    "赵乐际", "何伟", "韩正", "孙春兰",
+    "张国清", "陈敏尔", "胡春华", "刘鹤"
+  ],
+  "protected_keywords": [
+    "伟大领袖", "英明领袖", "卓越领导人",
+    "国家主席", "国务院总理", "总书记",
+    "开国元勋", "革命先烈", "民族英雄",
+    "人民英雄", "时代楷模", "道德模范",
+    "劳动模范", "战斗英雄", "特等功臣",
+    "共和国勋章", "人民科学家", "人民艺术家",
+    "文化名人", "文学大师", "艺术大师",
+    "科学巨匠", "工程大师", "教育大师",
+    "体育明星", "奥运冠军", "世界冠军",
+    "诺贝尔奖", "诺奖得主", "最高科技奖",
+    "国家功勋", "人民教育家", "人民艺术家",
+    "国家英雄", "民族英雄", "英雄模范"
+  ]
+}

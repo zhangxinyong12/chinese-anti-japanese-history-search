@@ -20,43 +20,26 @@ if (!env.DATABASE_URL) {
 }
 
 const sql = neon(env.DATABASE_URL);
-const { traitors = [], heroes = [] } = JSON.parse(
+const { traitors = [] } = JSON.parse(
   readFileSync(resolve(root, 'data/historical-figures.json'), 'utf8')
 );
 
-console.log(`📦 开始导入：汉奸 ${traitors.length} 人，抗日英雄 ${heroes.length} 人`);
+console.log(`📦 开始导入：汉奸 ${traitors.length} 人`);
 
-// 建表
-await sql`
-  CREATE TABLE IF NOT EXISTS historical_figures (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    period TEXT,
-    identity TEXT,
-    activities TEXT,
-    type TEXT NOT NULL,
-    note TEXT,
-    year INT,
-    punishment TEXT,
-    death_place TEXT
-  )
-`;
-
-// 清空旧数据，保证可重复执行
-await sql`DELETE FROM historical_figures`;
+// 这是开发环境种子脚本；清空人物及其关联提交，保证重复执行结果一致。
+await sql`TRUNCATE TABLE historical_figures RESTART IDENTITY CASCADE`;
 
 // 逐条插入（数据量小，无需批量优化）
-for (const p of [...traitors, ...heroes]) {
+for (const p of traitors) {
   await sql.query(
     `INSERT INTO historical_figures
-       (name, period, identity, activities, type, note, year, punishment, death_place)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+       (name, period, identity, activities, note, year, punishment, death_place, is_deleted)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, false)`,
     [
       p.name,
       p.period ?? '1931-1945',
       p.identity ?? '',
       p.activities ?? '',
-      p.type === 'traitor' ? 'traitor' : 'hero',
       p.note ?? null,
       p.year ?? null,
       p.punishment ?? null,

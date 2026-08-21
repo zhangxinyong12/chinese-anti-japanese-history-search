@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model HistoricalFigure {
+  id          Int              @id @default(autoincrement())
+  name        String
+  period      String           @default("1931-1945")
+  identity    String
+  activities  String
+  note        String?
+  year        Int?
+  punishment  String?
+  deathPlace  String?          @map("death_place")
+  isDeleted   Boolean          @default(false) @map("is_deleted")
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @default(now()) @updatedAt @map("updated_at")
+  submissions EditSubmission[]
+
+  @@index([isDeleted])
+  @@index([name])
+  @@map("historical_figures")
+}
+
+model User {
+  id                 Int                 @id @default(autoincrement())
+  email              String              @unique
+  passwordHash       String              @map("password_hash")
+  username           String
+  reputationScore    Int                 @default(50) @map("reputation_score")
+  status             UserStatus          @default(ACTIVE)
+  role               UserRole            @default(USER)
+  emailVerified      Boolean             @default(false) @map("email_verified")
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @default(now()) @updatedAt @map("updated_at")
+  submissions        EditSubmission[]
+  reputationHistory  ReputationHistory[]
+  securityViolations SecurityViolation[]
+  activityLogs       UserActivityLog[]
+  votes              Vote[]
+
+  @@index([email])
+  @@index([status])
+  @@unique([username])
+  @@map("users")
+}
+
+model EditSubmission {
+  id                Int                 @id @default(autoincrement())
+  figureId          Int?                @map("figure_id")
+  submitterId       Int                 @map("submitter_id")
+  editType          EditType            @map("edit_type")
+  proposedData      Json                @map("proposed_data")
+  citationSources   String[]            @map("citation_sources")
+  status            SubmissionStatus    @default(PENDING)
+  similarityGroupId Int?                @map("similarity_group_id")
+  rejectReason      String?             @map("reject_reason")
+  createdAt         DateTime            @default(now()) @map("created_at")
+  updatedAt         DateTime            @default(now()) @updatedAt @map("updated_at")
+  figure            HistoricalFigure?   @relation(fields: [figureId], references: [id])
+  submitter         User                @relation(fields: [submitterId], references: [id])
+  reputationHistory ReputationHistory[]
+  votes             Vote[]
+
+  @@index([figureId])
+  @@index([submitterId])
+  @@index([status])
+  @@index([similarityGroupId])
+  @@map("edit_submissions")
+}
+
+model Vote {
+  id           Int            @id @default(autoincrement())
+  submissionId Int            @map("submission_id")
+  voterId      Int            @map("voter_id")
+  voteType     Boolean        @map("vote_type")
+  weight       Int            @default(1)
+  reason       String?
+  createdAt    DateTime       @default(now()) @map("created_at")
+  submission   EditSubmission @relation(fields: [submissionId], references: [id])
+  voter        User           @relation(fields: [voterId], references: [id])
+
+  @@unique([submissionId, voterId])
+  @@index([submissionId])
+  @@index([voterId])
+  @@map("votes")
+}
+
+model ReputationHistory {
+  id                  Int             @id @default(autoincrement())
+  userId              Int             @map("user_id")
+  changeType          String          @map("change_type")
+  changeAmount        Int             @map("change_amount")
+  reason              String
+  relatedSubmissionId Int?            @map("related_submission_id")
+  createdAt           DateTime        @default(now()) @map("created_at")
+  submission          EditSubmission? @relation(fields: [relatedSubmissionId], references: [id])
+  user                User            @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("reputation_history")
+}
+
+model UserActivityLog {
+  id           Int      @id @default(autoincrement())
+  userId       Int      @map("user_id")
+  activityType String   @map("activity_type")
+  details      Json
+  ipAddress    String?  @map("ip_address")
+  userAgent    String?  @map("user_agent")
+  createdAt    DateTime @default(now()) @map("created_at")
+  user         User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([activityType])
+  @@index([createdAt])
+  @@map("user_activity_logs")
+}
+
+model SecurityViolation {
+  id              Int      @id @default(autoincrement())
+  userId          Int      @map("user_id")
+  violationType   String   @map("violation_type")
+  content         Json
+  reason          String?
+  matchedFigure   String?  @map("matched_figure")
+  protectionLevel String?  @map("protection_level")
+  status          String   @default("PENDING")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at")
+  user            User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([violationType])
+  @@index([status])
+  @@index([createdAt])
+  @@map("security_violations")
+}
+
+enum UserStatus {
+  ACTIVE
+  BANNED
+  SUSPENDED
+}
+
+enum UserRole {
+  USER
+  MODERATOR
+  ADMIN
+}
+
+enum EditType {
+  ADD
+  UPDATE
+  DELETE
+}
+
+enum SubmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  VOTING
+  AUTO_APPROVED
+}

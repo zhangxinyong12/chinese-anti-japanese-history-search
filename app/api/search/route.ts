@@ -7,8 +7,8 @@ import path from 'path';
 function loadJsonFallback() {
   try {
     const dataPath = path.join(process.cwd(), 'data', 'historical-figures.json');
-    const { traitors = [], heroes = [] } = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    return [...traitors, ...heroes];
+    const { traitors = [] } = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    return traitors; // 只返回汉奸数据
   } catch {
     return [];
   }
@@ -20,13 +20,16 @@ async function loadFromDb(): Promise<any[]> {
   if (!url) throw new Error('DATABASE_URL is not set');
   const sql = neon(url);
   const rows = await sql`
-    SELECT name, period, identity, activities, type, note, year, punishment, death_place
+    SELECT name, period, identity, activities, note, year, punishment, death_place
     FROM historical_figures
+    WHERE is_deleted = false
+    ORDER BY name
   `;
   return rows.map((r) => ({
     ...r,
     deathPlace: r.death_place,
     punishment: r.punishment,
+    // 移除type字段，只记录汉奸
   }));
 }
 
