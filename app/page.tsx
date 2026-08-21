@@ -1,12 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+interface HistoricalFigure {
+  id: number;
+  name: string;
+  period: string;
+  identity: string;
+  activities: string;
+  note: string | null;
+  year: number | null;
+  punishment: string | null;
+  deathPlace: string | null;
+}
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<HistoricalFigure[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [featuredFigures, setFeaturedFigures] = useState<HistoricalFigure[]>([]);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [featuredLoading, setFeaturedLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/featured", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("获取默认人物失败")
+        return response.json()
+      })
+      .then((data: { figures?: HistoricalFigure[] }) => {
+        if (!cancelled) {
+          setFeaturedFigures(data.figures ?? [])
+        }
+      })
+      .catch((error) => {
+        console.error("获取默认人物失败:", error)
+        if (!cancelled) setFeaturedFigures([])
+      })
+      .finally(() => {
+        if (!cancelled) setFeaturedLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  useEffect(() => {
+    if (hasSearched || featuredFigures.length < 2) return
+
+    const timer = window.setInterval(() => {
+      setFeaturedIndex((current) => (current + 1) % featuredFigures.length)
+    }, 5000)
+
+    return () => window.clearInterval(timer)
+  }, [featuredFigures.length, hasSearched])
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,6 +97,76 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      {!hasSearched && (
+        <section className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 mb-8" aria-label="主要历史人物轮播">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-bold text-white">📚 主要人物轮播</h3>
+              <p className="text-sm text-gray-400 mt-1">默认展示数据库中的重要历史人物，每5秒自动切换</p>
+            </div>
+            {featuredFigures.length > 0 && (
+              <span className="text-sm text-gray-400">
+                {featuredIndex + 1} / {featuredFigures.length}
+              </span>
+            )}
+          </div>
+
+          {featuredLoading ? (
+            <div className="text-center py-8 text-gray-400">正在加载人物资料...</div>
+          ) : featuredFigures.length === 0 ? (
+            <div className="text-center py-8 text-gray-400">暂时没有可展示的人物资料</div>
+          ) : (
+            <div className="result-card">
+              <div className="flex items-start justify-between mb-3">
+                <h4 className="result-title">{featuredFigures[featuredIndex].name}</h4>
+                <span className="result-type type-pro-japanese">汉奸</span>
+              </div>
+              <div className="space-y-2">
+                <p className="result-info"><strong>身份：</strong>{featuredFigures[featuredIndex].identity}</p>
+                <p className="result-info"><strong>主要事迹：</strong>{featuredFigures[featuredIndex].activities}</p>
+                {featuredFigures[featuredIndex].note && (
+                  <p className="result-info text-gray-400"><strong>历史评价：</strong>{featuredFigures[featuredIndex].note}</p>
+                )}
+                {featuredFigures[featuredIndex].punishment && (
+                  <p className="result-info text-gray-400"><strong>结局：</strong>{featuredFigures[featuredIndex].punishment}</p>
+                )}
+              </div>
+              {featuredFigures.length > 1 && (
+                <div className="flex items-center justify-between mt-5">
+                  <button
+                    type="button"
+                    onClick={() => setFeaturedIndex((current) => (current - 1 + featuredFigures.length) % featuredFigures.length)}
+                    className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm"
+                    aria-label="上一位人物"
+                  >
+                    ← 上一位
+                  </button>
+                  <div className="flex gap-1.5" aria-label="轮播位置">
+                    {featuredFigures.map((figure, index) => (
+                      <button
+                        key={figure.id}
+                        type="button"
+                        onClick={() => setFeaturedIndex(index)}
+                        className={`h-2 rounded-full transition-all ${index === featuredIndex ? "w-6 bg-red-500" : "w-2 bg-gray-600 hover:bg-gray-500"}`}
+                        aria-label={`显示第${index + 1}位人物`}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setFeaturedIndex((current) => (current + 1) % featuredFigures.length)}
+                    className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm"
+                    aria-label="下一位人物"
+                  >
+                    下一位 →
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+      )}
 
       {/* Search Section */}
       <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700 mb-8">

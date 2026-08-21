@@ -1,4 +1,4 @@
-// Neon 数据库建表 + 导入种子数据
+// Neon 数据库增量导入种子数据
 // 用法: node scripts/seed-neon.mjs  (需要 .env.local 中有 DATABASE_URL)
 import { neon } from '@neondatabase/serverless';
 import { readFileSync } from 'fs';
@@ -26,26 +26,26 @@ const { traitors = [] } = JSON.parse(
 
 console.log(`📦 开始导入：汉奸 ${traitors.length} 人`);
 
-// 这是开发环境种子脚本；清空人物及其关联提交，保证重复执行结果一致。
-await sql`TRUNCATE TABLE historical_figures RESTART IDENTITY CASCADE`;
-
-// 逐条插入（数据量小，无需批量优化）
+// 只补充缺失的人物，避免重复部署时删除用户提交或覆盖人工修订。
 for (const p of traitors) {
-  await sql.query(
-    `INSERT INTO historical_figures
-       (name, period, identity, activities, note, year, punishment, death_place, is_deleted)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, false)`,
-    [
-      p.name,
-      p.period ?? '1931-1945',
-      p.identity ?? '',
-      p.activities ?? '',
-      p.note ?? null,
-      p.year ?? null,
-      p.punishment ?? null,
-      p.death_place ?? null,
-    ]
-  );
+  const existing = await sql`
+    SELECT id FROM historical_figures WHERE name = ${p.name} LIMIT 1
+  `;
+
+  if (existing.length > 0) {
+    console.log(`⏭️ 已存在，跳过：${p.name}`);
+    continue;
+  }
+
+  await sql`
+    INSERT INTO historical_figures
+      (name, period, identity, activities, note, year, punishment, death_place, is_deleted)
+    VALUES
+      (${p.name}, ${p.period ?? '1931-1945'}, ${p.identity ?? ''},
+       ${p.activities ?? ''}, ${p.note ?? null}, ${p.year ?? null},
+       ${p.punishment ?? null}, ${p.deathPlace ?? p.death_place ?? null}, false)
+  `;
+  console.log(`➕ 已添加：${p.name}`);
 }
 
 const [row] = await sql`SELECT COUNT(*)::int AS count FROM historical_figures`;

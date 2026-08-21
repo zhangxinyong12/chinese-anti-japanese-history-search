@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from "next/link";
 import { SimpleSessionProvider } from "@/components/SimpleSessionProvider";
 import { SessionNav } from "@/components/SessionNav";
 
@@ -61,10 +62,12 @@ export default function RootLayout({
             <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm">
               <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-                    <span className="text-3xl">🇨🇳</span>
-                    <span>汉奸清算器</span>
-                  </h1>
+                  <Link href="/" aria-label="返回首页" className="rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+                      <span className="text-3xl">🇨🇳</span>
+                      <span>汉奸清算器</span>
+                    </h1>
+                  </Link>
 
                   <div className="flex items-center gap-4">
                     <div className="text-sm text-gray-400">
