@@ -1,5 +1,5 @@
 {
-  "name": "chinese-anti-japanese-history-search",
+  "name": "china-war-heroes",
   "version": "1.0.0",
   "description": "中国抗日战争历史人物查询工具 - 缅怀先烈，警惕汉奸",
   "private": true,
@@ -42,10 +42,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search.git"
+    "url": "https://github.com/zhangxinyong12/china-war-heroes.git"
   },
   "bugs": {
-    "url": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search/issues"
+    "url": "https://github.com/zhangxinyong12/china-war-heroes/issues"
   },
-  "homepage": "https://github.com/zhangxinyong12/chinese-anti-japanese-history-search#readme"
+  "homepage": "https://github.com/zhangxinyong12/china-war-heroes#readme"
 }
