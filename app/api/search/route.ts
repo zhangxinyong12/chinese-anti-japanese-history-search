@@ -1,43 +1,71 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { neon } from '@neondatabase/serverless';
 import fs from 'fs';
 import path from 'path';
 
-// 读取JSON数据文件
-function loadData() {
+// JSON 兜底数据：数据库不可用时保证站点仍可搜索
+function loadJsonFallback() {
   try {
     const dataPath = path.join(process.cwd(), 'data', 'historical-figures.json');
-    const rawData = fs.readFileSync(dataPath, 'utf8');
-    return JSON.parse(rawData);
-  } catch (error) {
-    console.error('Error loading data:', error);
-    return { traitors: [], heroes: [] };
+    const { traitors = [], heroes = [] } = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    return [...traitors, ...heroes];
+  } catch {
+    return [];
   }
 }
 
+// 从 Neon 数据库加载全部记录
+async function loadFromDb(): Promise<any[]> {
+  const url = process.env.DATABASE_URL;
+  if (!url) throw new Error('DATABASE_URL is not set');
+  const sql = neon(url);
+  const rows = await sql`
+    SELECT name, period, identity, activities, type, note, year, punishment, death_place
+    FROM historical_figures
+  `;
+  return rows.map((r) => ({
+    ...r,
+    deathPlace: r.death_place,
+    punishment: r.punishment,
+  }));
+}
+
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get('q')?.toLowerCase().trim();
+  const query = request.nextUrl.searchParams.get('q')?.toLowerCase().trim();
 
   if (!query) {
     return NextResponse.json({ results: [] });
   }
 
-  // 从JSON文件加载数据
-  const { traitors, heroes } = loadData();
-  
-  // 合并所有数据
-  const allData = [...traitors, ...heroes];
-  
-  // 搜索逻辑
-  const results = allData.filter(person => {
+  // Neon 优先，失败时回退 JSON
+  let allData: any[] = [];
+  let source = 'database';
+  try {
+    allData = await loadFromDb();
+  } catch (error) {
+    console.error('Database query failed, falling back to JSON:', error);
+    allData = loadJsonFallback();
+    source = 'json-fallback';
+  }
+
+  if (allData.length === 0) {
+    allData = loadJsonFallback();
+    source = 'json-fallback';
+  }
+
+  // 中文搜索：整词包含 或 每个字符都命中
+  const results = allData.filter((person) => {
     const searchableText = `${person.name} ${person.identity} ${person.activities}`.toLowerCase();
-    return searchableText.includes(query) || 
-           query.split('').every((char: string) => searchableText.includes(char));
+    return (
+      searchableText.includes(query) ||
+      query.split('').every((char: string) => searchableText.includes(char))
+    );
   });
 
-  return NextResponse.json({ 
+  return NextResponse.json({
     results,
     total: results.length,
-    query: query
+    query,
+    source,
   });
 }
