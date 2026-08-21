@@ -1,5 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import fs from 'fs';
+import path from 'path';
+
+// 读取JSON数据文件
+function loadData() {
+  try {
+    const dataPath = path.join(process.cwd(), 'data', 'historical-figures.json');
+    const rawData = fs.readFileSync(dataPath, 'utf8');
+    return JSON.parse(rawData);
+  } catch (error) {
+    console.error('Error loading data:', error);
+    return { traitors: [], heroes: [] };
+  }
+}
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -9,32 +22,22 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] });
   }
 
-  try {
-    // 使用 Prisma 搜索数据库
-    const results = await prisma.historicalFigure.findMany({
-      where: {
-        OR: [
-          { name: { contains: query, mode: 'insensitive' } },
-          { identity: { contains: query, mode: 'insensitive' } },
-          { activities: { contains: query, mode: 'insensitive' } },
-          { note: { contains: query, mode: 'insensitive' } },
-        ],
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+  // 从JSON文件加载数据
+  const { traitors, heroes } = loadData();
+  
+  // 合并所有数据
+  const allData = [...traitors, ...heroes];
+  
+  // 搜索逻辑
+  const results = allData.filter(person => {
+    const searchableText = `${person.name} ${person.identity} ${person.activities}`.toLowerCase();
+    return searchableText.includes(query) || 
+           query.split('').every((char: string) => searchableText.includes(char));
+  });
 
-    return NextResponse.json({
-      results,
-      total: results.length,
-      query: query,
-    });
-  } catch (error) {
-    console.error('Database search error:', error);
-    return NextResponse.json(
-      { error: '搜索失败，请稍后重试' },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({ 
+    results,
+    total: results.length,
+    query: query
+  });
 }
