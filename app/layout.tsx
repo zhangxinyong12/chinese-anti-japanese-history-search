@@ -81,6 +81,7 @@ export default function RootLayout({
                 <p>⚠️ 本项目仅供历史研究和教育参考，基于公开历史资料</p>
                 <p className="mt-2">铭记历史，缅怀先烈，珍爱和平，开创未来</p>
                 <p className="mt-2">抗日战争时期历史人物查询 | 1931-1945</p>
+                <p className="mt-2">当前网站域名：china-war-heroes.vercel.app</p>
               </div>
             </div>
           </footer>
