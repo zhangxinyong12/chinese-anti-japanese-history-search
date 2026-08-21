@@ -7,16 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate",
-    "db:seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@prisma/client": "^5.7.0",
-    "@vercel/postgres": "^0.5.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -25,9 +21,7 @@
     "typescript": "^5",
     "tailwindcss": "^3.4.1",
     "postcss": "^8",
-    "autoprefixer": "^10.0.1",
-    "prisma": "^5.7.0",
-    "ts-node": "^10.9.2"
+    "autoprefixer": "^10.0.1"
   },
   "keywords": [
     "抗日战争",
@@ -38,7 +32,7 @@
     "nextjs",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "zhangxinyong12 <13271150671@wo.cn>",
   "license": "MIT",
   "repository": {
     "type": "git",
